@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Meenal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Playfair+Display:ital@1&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    background: radial-gradient(circle at top, #1a001f, #000);
+    color:#fff;
+    font-family:'Playfair Display', serif;
+    overflow:hidden;
+}
+
+/* Star glow */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+      radial-gradient(2px 2px at 20% 30%, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 70% 60%, #fff, transparent),
+      radial-gradient(1px 1px at 40% 80%, #fff, transparent),
+      radial-gradient(2px 2px at 80% 20%, #fff, transparent);
+    animation: twinkle 6s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{opacity:.4;}
+    to{opacity:1;}
+}
+
+/* Pages */
+.page{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px;
+    transition:transform 1.4s ease, opacity 1.4s ease;
+}
+
+#page1{
+    z-index:2;
+}
+
+#page2{
+    transform:translateY(100%);
+    opacity:0;
+    z-index:1;
+}
+
+/* Page 1 */
+h1{
+    font-family:'Cinzel', serif;
+    font-size:2.4em;
+    letter-spacing:2px;
+    margin-bottom:25px;
+}
+
+.intro{
+    font-size:1.2em;
+    line-height:1.9;
+}
+
+button{
+    margin-top:35px;
+    padding:14px 36px;
+    background:transparent;
+    border:1px solid #ffb6c1;
+    color:#ffb6c1;
+    font-size:1em;
+    border-radius:40px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#ffb6c1;
+    color:#000;
+}
+
+/* Page 2 – Letter */
+.letter{
+    max-width:650px;
+    background:rgba(255,255,255,0.06);
+    padding:35px;
+    border-radius:12px;
+    animation: unfold 1.8s ease forwards;
+}
+
+@keyframes unfold{
+    from{
+        transform:scale(.95);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.letter p{
+    font-size:1.15em;
+    line-height:1.9;
+    color:#ffd6e8;
+}
+
+.signature{
+    margin-top:35px;
+    font-family:'Great Vibes', cursive;
+    font-size:2.4em;
+    color:#ffb6c1;
+}
+
+/* Transition Active */
+.show-letter #page1{
+    transform:translateY(-100%);
+    opacity:0;
+}
+
+.show-letter #page2{
+    transform:translateY(0);
+    opacity:1;
+}
+
+/* Mobile polish */
+@media(max-width:600px){
+    h1{font-size:2em;}
+    .intro,.letter p{font-size:1.05em;}
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+    <source src="https://cdn.pixabay.com/audio/2022/10/25/audio_1b4d3bcd87.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Page 1 -->
+<div class="page" id="page1">
+    <div>
+        <h1>For Meenal, On This Quiet Night</h1>
+        <div class="intro">
+            Somewhere between the stars and silence,<br>
+            tonight gently learned your name — <strong>Meenal</strong>.<br><br>
+            This is not just a birthday,<br>
+            it is a pause in time,<br>
+            where the universe softly admits<br>
+            how rare you truly are.
+        </div>
+        <button onclick="openLetter()">Open the Letter</button>
+    </div>
+</div>
+
+<!-- Page 2 -->
+<div class="page" id="page2">
+    <div class="letter">
+        <p>
+            Some people are moments.<br>
+            Some are memories.<br><br>
+            And then there are souls like you, Meenal —<br>
+            felt before understood,<br>
+            remembered even in silence.<br><br>
+            May this year be gentle with you,<br>
+            kind to your heart,<br>
+            and filled with quiet magic<br>
+            when no one else is watching.<br><br>
+            <strong>Happy Birthday, Meenal ✨</strong>
+        </p>
+        <div class="signature">— From Mohit</div>
+    </div>
+</div>
+
+<script>
+function openLetter(){
+    document.body.classList.add("show-letter");
+    document.getElementById("music").play();
+}
+</script>
+
+</body>
+</html>
